@@ -1,4 +1,5 @@
 # kubernetes-ingress
+Codebunk URl :https://codebunk.com/b/5751100113469/
 Why ingress is used :
 Suppose Lets consider we have 4 application that running so for these 4 application we require 4 SVC(services) and that services are talking to the number of nodes present hence we require that much of IP Addresses (for example 4 nodes 5 services 4*5=20 ip required).
 hence nodeport doesn't feasible like there is lot's of trafiic and we can't depend on Nodeport.
