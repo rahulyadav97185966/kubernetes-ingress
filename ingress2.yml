@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1beta1  ### if it is v1.13 you can use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: myrule1
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /app2  # / (slash) is required on browser when you give /app1 which page has to open
+        backend:
+          serviceName: test2  #test1 or 2 is a deployment name taht given when you put(kubectl create deployment test1 --image=docker.io/httpd) this command
+          servicePort: 80
