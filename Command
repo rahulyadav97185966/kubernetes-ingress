@@ -1,0 +1,34 @@
+Commands:
+#kubectl create deployment test1 --image=docker.io/httpd  : creating Pods
+#kubectl create deployment test2 --image=docker.io/httpd
+#kubectl expose deployment test1 --port=80 : exposing ports
+#kubectl expose deployment test2 --port=80
+#kubectl get pods : checking whether the pods are running or not
+#kubectl get pods -o wide : checking full details of pods
+#kubectl exec -it test1-67574b569f-5sp5g bash : enterring into running conatiner (Go to htdocs  using cd htdocs and chane the contains of
+ index.html file )
+#kubectl exec -it test2-5f87cbc9b4-pk5vg bash :
+#kubectl get pods -o wide
+#curl 10.244.1.4 :now check whether the pods has different info or not
+#curl 10.244.1.5 
+#kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.31.1/deploy/static/provider/baremetal/deploy.yaml
+    :  now apply the above command to get everything related to ingress.
+    
+#kubectl get all -n ingress-nginx : it gives you the port number (for example 15264 or else) 
+    ---->  now go to browser and put this port (for katacoda just go to select port on httpd)
+    ----> for normal user put ip address and then port number ( for example 192.168.0.0:12562)
+    ----> now you see the not found page cause Ingress controller is up and running but rules are not bounded to that controller (ingress
+    controller doesn't know where to go (which application he has to run))
+    
+#vi ingress.yml
+    --> copy the code given into the file ingress.yml
+#kubectl create -f ingress.yml : it runs that yml file
+#vi ingress2.yml
+     --> copy the code given into the file ingress2.yml
+#kubectl create -f ingress2.yml : it runs that yml file
+#now refresh that page and using /check the applicatio like (https://latcode..fdfbskjf/app1 or  https://latcode..fdfbskjf/app2)
+
+Extra Commands for checking something wrong happen (Please don't follow the below commnad as they are not usefull):
+#kubectl get pods -n kube-system
+#kubectl delete pod katacoda-cloud-provider-58f89f7d9-9z99x -n kube-system
+kubectl get pods -n kube-system
